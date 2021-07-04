@@ -25,9 +25,7 @@ extension ViewController: ModelDelegate {
             guard selected != nil else { return }
             print("User selected endpoint!")
         case Model.buttonTag.routecalc.rawValue:
-            #if DEBUG
             print("Trying to make the shortest route!")
-            #endif
             let coords = mapView.model.route.compactMap({ $0.coordinate })
             
             for (i,coord) in coords.enumerated() {
