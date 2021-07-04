@@ -1,5 +1,4 @@
 import UIKit
-import MapKit
 
 // Тестовое задание «СЗ РЦАИ» iOS Developer
 
