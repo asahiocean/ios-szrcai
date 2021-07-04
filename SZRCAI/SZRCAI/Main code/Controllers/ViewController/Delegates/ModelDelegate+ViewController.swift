@@ -130,7 +130,7 @@ extension ViewController: ModelDelegate {
                     let alert = UIAlertController(title: "Point is too far away!",
                                                   message: "The distance between the vertices should not be more than 5 km.",
                                                   preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "ОК", style: .cancel))
+                    alert.addAction(.init(title: "ОК", style: .cancel))
                     present(alert, animated: true)
                 }
             })
