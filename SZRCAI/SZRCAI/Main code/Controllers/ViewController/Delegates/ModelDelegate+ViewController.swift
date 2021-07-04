@@ -60,8 +60,8 @@ extension ViewController: ModelDelegate {
             
             let directions = MKDirections(request: dirRequest)
             
-            directions.calculate { [self] (response, error) in
-                guard let response = response else {
+            directions.calculate { [self] (resp, error) in
+                guard let response = resp else {
                     if let error = error {
                         // MARK: Error message while building a route
                         let alert = UIAlertController(title: "FAILED TO CREATE A ROUTE",
