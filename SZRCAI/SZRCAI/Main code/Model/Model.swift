@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ModelDelegate: class {
+protocol ModelDelegate: AnyObject {
     func deselectPin(pin: PinAnnotation)
     func modelButtonExecute(sender: UIButton)
 }
