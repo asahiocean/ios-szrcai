@@ -20,9 +20,7 @@ extension ViewController: ModelDelegate {
             constructGraphs()
         case Model.buttonTag.start.rawValue:
             guard selected != nil else { return }
-            #if DEBUG
             print("User has chosen a starting point!")
-            #endif
         case Model.buttonTag.finish.rawValue:
             guard selected != nil else { return }
             #if DEBUG
