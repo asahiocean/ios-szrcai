@@ -2,7 +2,7 @@ import UIKit
 
 extension ViewController {
     internal func buttonsSetup() {
-        guard let tracker = mapView.model.trackerButton(mv: mapView) else { fatalError("Solve the button problem") }
+        guard let tracker = mapView.model.trackerButton(with: mapView) else { fatalError("Solve the button problem") }
         view.addSubview(tracker)
         
         buttonKVO = mapView.model.observe(\.mainButton, options: [.initial,.new], changeHandler: { obj, change in
