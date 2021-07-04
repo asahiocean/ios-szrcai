@@ -15,11 +15,9 @@ class SZRCAITests: XCTestCase {
         }
     }
     
-    override func setUpWithError() throws {
-    }
+    override func setUpWithError() throws { }
     
-    override func tearDownWithError() throws {
-    }
+    override func tearDownWithError() throws { }
     
     func testingVC() throws {
         XCTAssertTrue(viewController != nil)
