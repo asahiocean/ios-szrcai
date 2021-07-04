@@ -24,7 +24,7 @@ extension Model {
             }
         }
         
-        func buttonAnimator(b button: UIButton, _ completion: (() -> Void)? = nil) {
+        func buttonAnimator(b button: UIButton, _ completion: (()->())? = nil) {
             // simple animator for positioning button on the screen
             UIView.animate(withDuration: 0.25, delay: 0.25, options: [.curveEaseInOut], animations: {
                 button.frame.origin.y += 200
