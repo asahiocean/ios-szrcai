@@ -30,10 +30,8 @@ extension ViewController {
         func buttonsAnimator(state: state) {
             let value = view.bounds.maxY * state.rawValue
             UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
-                // - - Main button - -
                 self?.mainButton.frame.origin.y = value
                 self?.mainButton.layoutIfNeeded()
-                //  - - Clear button - -
                 self?.clearButton.frame.origin.y = value
                 self?.clearButton.layoutIfNeeded()
             })
