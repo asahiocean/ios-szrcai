@@ -1,4 +1,3 @@
-import Foundation
 import MapKit.MKPolyline
 
 class DashLine: MKPolyline {
