@@ -13,54 +13,50 @@ extension ViewController: ModelDelegate {
     }
     
     func modelButtonExecute(sender: UIButton) {
-        let selected = mapView.model.selected
-        switch sender.tag {
-        case Model.buttonTag.graphs.rawValue:
-            #if DEBUG
+        let m = mapView.model
+        let tag = Model.buttonTag(rawValue: sender.tag)
+        switch tag {
+        case .graphs:
             print("Trying to build graphs...")
-            #endif
             constructGraphs()
-        case Model.buttonTag.start.rawValue:
-            guard selected != nil else { return }
-            #if DEBUG
-            print("User has chosen a starting point!")
-            #endif
-        case Model.buttonTag.finish.rawValue:
-            guard selected != nil else { return }
-            #if DEBUG
-            print("User selected endpoint!")
-            #endif
-        case Model.buttonTag.routecalc.rawValue:
-            #if DEBUG
+        case .start:
+            if m.selected != nil {
+                print("User has chosen a starting point!")
+            } else { /* ... */ }
+        case .finish:
+            if m.selected != nil {
+                print("User selected endpoint!")
+            } else { /* ... */ }
+        case .routecalc:
             print("Trying to make the shortest route!")
-            #endif
-            let coords = mapView.model.route.compactMap({ $0.coordinate })
-            
+            let coords = m.route.compactMap({ $0.coordinate })
             for (i,coord) in coords.enumerated() {
                 if (i+1) < coords.count {
                     createRouteTo(from: coord, to: coords[i+1])
                 }
             }
             mainButton?.removeTarget(nil, action: nil, for: .allEvents)
-        case Model.buttonTag.clear.rawValue:
+        case .clear:
             clearingMap()
             print("❌ Clearing the map...")
-        default: fatalError()
+        default:
+            fatalError()
         }
     }
     
     func createRouteTo(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
-        if CLLocationCoordinate2DIsValid(from) && CLLocationCoordinate2DIsValid(to) {
-            let directionRequest = MKDirections.Request()
-            directionRequest.source = .init(placemark: .init(coordinate: from))
-            directionRequest.destination = .init(placemark: .init(coordinate: to))
-            directionRequest.requestsAlternateRoutes = false
-            directionRequest.transportType = .any
+        let CLL2DIsValid = CLLocationCoordinate2DIsValid
+        if CLL2DIsValid(from) && CLL2DIsValid(to) {
+            let dirRequest = MKDirections.Request()
+            dirRequest.source = .init(placemark: .init(coordinate: from))
+            dirRequest.destination = .init(placemark: .init(coordinate: to))
+            dirRequest.requestsAlternateRoutes = false
+            dirRequest.transportType = .any
             
-            let directions = MKDirections(request: directionRequest)
+            let directions = MKDirections(request: dirRequest)
             
-            directions.calculate { [self] (response, error) in
-                guard let response = response else {
+            directions.calculate { [self] (resp, error) in
+                guard let response = resp else {
                     if let error = error {
                         // MARK: Error message while building a route
                         let alert = UIAlertController(title: "FAILED TO CREATE A ROUTE",
