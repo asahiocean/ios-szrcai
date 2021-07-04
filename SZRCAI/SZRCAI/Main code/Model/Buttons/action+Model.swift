@@ -24,7 +24,7 @@ extension Model {
             }
         }
         
-        func buttonAnimator(b button: UIButton, _ completion: (() -> Void)? = nil) {
+        func buttonAnimator(b button: UIButton, _ completion: (()->())? = nil) {
             // simple animator for positioning button on the screen
             UIView.animate(withDuration: 0.25, delay: 0.25, options: [.curveEaseInOut], animations: {
                 button.frame.origin.y += 200
@@ -50,21 +50,22 @@ extension Model {
             closure()
         }
         
-        switch button.tag {
-        case Model.buttonTag.graphs.rawValue:
-            guard graphsBuilt else { return }
-            switching(next: .start)
-        case Model.buttonTag.start.rawValue:
+        let tag = Model.buttonTag(rawValue: button.tag)
+        switch tag {
+        case .graphs:
+            if graphsBuilt { switching(next: .start) }
+        case .start:
             check(pin: &selected, cl: #colorLiteral(red: 0.1960784314, green: 0.8431372549, blue: 0.2941176471, alpha: 1), {
                 switching(next: .finish)
             }())
-        case Model.buttonTag.finish.rawValue:
+        case .finish:
             check(pin: &selected, cl: #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1), {
                 switching(next: .routecalc)
             }())
-        case Model.buttonTag.clear.rawValue:
+        case .clear:
             switching(next: .graphs)
-        default: break
+        default:
+            break
         }
     }
 }
