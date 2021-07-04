@@ -14,17 +14,20 @@ extension ViewController: ModelDelegate {
     
     func modelButtonExecute(sender: UIButton) {
         let m = mapView.model
-        switch sender.tag {
-        case Model.buttonTag.graphs.rawValue:
+        let tag = Model.buttonTag(rawValue: sender.tag)
+        switch tag {
+        case .graphs:
             print("Trying to build graphs...")
             constructGraphs()
-        case Model.buttonTag.start.rawValue:
-            guard m.selected != nil else { return }
-            print("User has chosen a starting point!")
-        case Model.buttonTag.finish.rawValue:
-            guard m.selected != nil else { return }
-            print("User selected endpoint!")
-        case Model.buttonTag.routecalc.rawValue:
+        case .start:
+            if m.selected != nil {
+                print("User has chosen a starting point!")
+            } else { /* ... */ }
+        case .finish:
+            if m.selected != nil {
+                print("User selected endpoint!")
+            } else { /* ... */ }
+        case .routecalc:
             print("Trying to make the shortest route!")
             let coords = m.route.compactMap({ $0.coordinate })
             
@@ -34,7 +37,7 @@ extension ViewController: ModelDelegate {
                 }
             }
             mainButton?.removeTarget(nil, action: nil, for: .allEvents)
-        case Model.buttonTag.clear.rawValue:
+        case .clear:
             clearingMap()
             print("❌ Clearing the map...")
         default: fatalError()
