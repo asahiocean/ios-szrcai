@@ -32,9 +32,7 @@ extension Model {
         view.center.y = mapView.frame.midY
         view.frame.origin.x = mapView.frame.maxX - (view.bounds.width + sqroot)
         view.addSubview(toolbar)
-        
         self.trackingButton = view
-        
         return trackingButton
     }
 }
