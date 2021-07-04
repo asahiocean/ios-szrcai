@@ -52,13 +52,13 @@ extension ViewController: ModelDelegate {
     func createRouteTo(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
         let CLL2DIsValid = CLLocationCoordinate2DIsValid
         if CLL2DIsValid(from) && CLL2DIsValid(to) {
-            let directionRequest = MKDirections.Request()
-            directionRequest.source = .init(placemark: .init(coordinate: from))
-            directionRequest.destination = .init(placemark: .init(coordinate: to))
-            directionRequest.requestsAlternateRoutes = false
-            directionRequest.transportType = .any
+            let dirRequest = MKDirections.Request()
+            dirRequest.source = .init(placemark: .init(coordinate: from))
+            dirRequest.destination = .init(placemark: .init(coordinate: to))
+            dirRequest.requestsAlternateRoutes = false
+            dirRequest.transportType = .any
             
-            let directions = MKDirections(request: directionRequest)
+            let directions = MKDirections(request: dirRequest)
             
             directions.calculate { [self] (response, error) in
                 guard let response = response else {
