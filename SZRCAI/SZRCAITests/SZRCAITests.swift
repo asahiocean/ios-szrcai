@@ -38,7 +38,6 @@ class SZRCAITests: XCTestCase {
     }
     
     func testPerformanceExample() throws {
-        self.measure {
-        }
+        self.measure { }
     }
 }
