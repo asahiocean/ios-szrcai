@@ -30,7 +30,6 @@ extension ViewController: ModelDelegate {
         case .routecalc:
             print("Trying to make the shortest route!")
             let coords = m.route.compactMap({ $0.coordinate })
-            
             for (i,coord) in coords.enumerated() {
                 if (i+1) < coords.count {
                     createRouteTo(from: coord, to: coords[i+1])
