@@ -7,7 +7,8 @@ extension ViewController {
         
         buttonKVO = mapView.model.observe(\.mainButton, options: [.initial,.new], changeHandler: { obj, change in
             guard let config = change.newValue, let button = config else { return }
-            self.mainButton = button // Monitoring the state of the button through the KVO
+            // Monitoring the state of the button through the KVO
+            self.mainButton = button
         })
         view.addSubview(mainButton)
         
