@@ -41,7 +41,8 @@ extension ViewController {
         pinsKVO = mapView.model.observe(\.pins, options: .new, changeHandler: { [self] obj, change in
             guard let pins = change.newValue else { return }
             
-            //MARK: После добавления хотя бы 3 точек должны появляться кнопки
+            // MARK: Условие!
+            // После добавления хотя бы 3 точек должны появляться кнопки
             if pins.count > 2 {
                 buttonsAnimator(state: .show)
             } else {
