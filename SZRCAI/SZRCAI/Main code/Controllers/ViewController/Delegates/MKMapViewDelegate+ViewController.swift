@@ -26,7 +26,7 @@ extension ViewController: MKMapViewDelegate {
     //MARK: - MKUserTrackingMode
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
-        if lm.shared.status != .authorizedWhenInUse {
+        if LM.shared.status != .authorizedWhenInUse {
             let alert = alertAuthorizedWhenInUse()
             present(alert, animated: true, completion: {
                 mapView.userTrackingMode = .none
