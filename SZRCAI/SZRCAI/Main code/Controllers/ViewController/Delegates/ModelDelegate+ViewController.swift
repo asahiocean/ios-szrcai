@@ -39,7 +39,8 @@ extension ViewController: ModelDelegate {
         case .clear:
             clearingMap()
             print("❌ Clearing the map...")
-        default: fatalError()
+        default:
+            fatalError()
         }
     }
     
