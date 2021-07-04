@@ -6,8 +6,7 @@ class SZRCAIUITests: XCTestCase {
         continueAfterFailure = false
     }
     
-    override func tearDownWithError() throws {
-    }
+    override func tearDownWithError() throws { }
     
     func testExample() throws {
         let app = XCUIApplication()
