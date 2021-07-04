@@ -13,20 +13,20 @@ extension ViewController: ModelDelegate {
     }
     
     func modelButtonExecute(sender: UIButton) {
-        let selected = mapView.model.selected
+        let m = mapView.model
         switch sender.tag {
         case Model.buttonTag.graphs.rawValue:
             print("Trying to build graphs...")
             constructGraphs()
         case Model.buttonTag.start.rawValue:
-            guard selected != nil else { return }
+            guard m.selected != nil else { return }
             print("User has chosen a starting point!")
         case Model.buttonTag.finish.rawValue:
-            guard selected != nil else { return }
+            guard m.selected != nil else { return }
             print("User selected endpoint!")
         case Model.buttonTag.routecalc.rawValue:
             print("Trying to make the shortest route!")
-            let coords = mapView.model.route.compactMap({ $0.coordinate })
+            let coords = m.route.compactMap({ $0.coordinate })
             
             for (i,coord) in coords.enumerated() {
                 if (i+1) < coords.count {
