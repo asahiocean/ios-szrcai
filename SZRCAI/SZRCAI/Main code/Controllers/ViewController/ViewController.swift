@@ -10,8 +10,8 @@ class ViewController: UIViewController {
     weak var mainButton: UIButton!
     weak var clearButton: UIButton!
     
-    var buttonKVO: NSKeyValueObservation!
-    var pinsKVO: NSKeyValueObservation!
+    internal var buttonKVO: NSKeyValueObservation!
+    internal var pinsKVO: NSKeyValueObservation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
