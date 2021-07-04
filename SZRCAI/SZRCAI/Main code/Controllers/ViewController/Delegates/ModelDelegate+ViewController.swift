@@ -37,7 +37,7 @@ extension ViewController: ModelDelegate {
             let coords = mapView.model.route.compactMap({ $0.coordinate })
             
             for (i,coord) in coords.enumerated() {
-                if (i + 1) < coords.count {
+                if (i+1) < coords.count {
                     createRouteTo(from: coord, to: coords[i+1])
                 }
             }
