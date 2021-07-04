@@ -21,8 +21,8 @@ protocol ModelDelegate: AnyObject {
     @objc dynamic var selected: PinAnnotation?
     public var route: [PinAnnotation] = []
     
-    var selectedPinsKVO: NSKeyValueObservation!
-    var mainButtonTitle: String = "" // To save the button name
+    internal var selectedPinsKVO: NSKeyValueObservation!
+    internal var mainButtonTitle: String = "" // To save the button name
     
     fileprivate override init() {
         super.init()

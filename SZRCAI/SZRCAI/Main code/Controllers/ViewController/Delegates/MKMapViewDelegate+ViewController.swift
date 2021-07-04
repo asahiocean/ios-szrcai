@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 import MapKit
 
@@ -40,7 +39,7 @@ extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         guard let annotation = view.annotation else { return }
         mapView.deselectAnnotation(annotation, animated: true)
-        Model.shared.selected = nil
+        self.model.selected = nil
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -48,7 +47,7 @@ extension ViewController: MKMapViewDelegate {
         if let pin = annotation as? PinAnnotation {
             mapView.selectAnnotation(pin, animated: true)
             // If the graph is built, give the opportunity to choose the starting and ending point
-            if Model.shared.graphsBuilt { Model.shared.selected = pin }
+            if self.model.graphsBuilt { self.model.selected = pin }
         }
     }
     
@@ -59,7 +58,7 @@ extension ViewController: MKMapViewDelegate {
         case let pin as PinAnnotation:
             let id = PinMarkerView.reuseId
             let view = mapView.dequeueReusableAnnotationView(withIdentifier: id, for: pin)
-            Model.shared.pins.append(pin)
+            self.model.pins.append(pin)
             return view
         default:
             return nil
@@ -72,8 +71,8 @@ extension ViewController: MKMapViewDelegate {
         switch view.annotation {
         case let pin as PinAnnotation:
             guard let annotation = view.annotation else { return }
-            Model.shared.pins.removeAll(where: { $0 == pin })
-            Model.shared.route.removeAll(where: { $0 == pin })
+            self.model.pins.removeAll(where: { $0 == pin })
+            self.model.route.removeAll(where: { $0 == pin })
             mapView.removeAnnotation(annotation)
             // After removing the marker, the graphs will be rebuilt
             self.constructGraphs()
