@@ -16,9 +16,7 @@ extension ViewController: ModelDelegate {
         let selected = mapView.model.selected
         switch sender.tag {
         case Model.buttonTag.graphs.rawValue:
-            #if DEBUG
             print("Trying to build graphs...")
-            #endif
             constructGraphs()
         case Model.buttonTag.start.rawValue:
             guard selected != nil else { return }
