@@ -50,7 +50,8 @@ extension ViewController: ModelDelegate {
     }
     
     func createRouteTo(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
-        if CLLocationCoordinate2DIsValid(from) && CLLocationCoordinate2DIsValid(to) {
+        let CLL2DIsValid = CLLocationCoordinate2DIsValid
+        if CLL2DIsValid(from) && CLL2DIsValid(to) {
             let directionRequest = MKDirections.Request()
             directionRequest.source = .init(placemark: .init(coordinate: from))
             directionRequest.destination = .init(placemark: .init(coordinate: to))
