@@ -38,7 +38,7 @@ class MapView: MKMapView {
         isScrollEnabled = true
         
         let longPress = UILongPressGestureRecognizer()
-        longPress.minimumPressDuration = 0.25 // in seconds
+        longPress.minimumPressDuration = 0.25 // in sec
         longPress.addTarget(self, action: #selector(appendPin(_:)))
         addGestureRecognizer(longPress)
         
