@@ -110,7 +110,7 @@ extension ViewController: ModelDelegate {
                 // MARK: вершины соединены ребрами при условии, что расстояние между вершинами не более 5км
                 // condition: vertices are connected by edges, provided that the distance between the vertices is no more than 5 km
                 if locations.distance < 5000 {
-                    let dashline = DashLine(locations: locations)
+                    let dashline = DashLine(with: locations)
                     
                     // you can also delegate the storage of all vertices and graphs
                     // to into a separate class in which can their compare for find matches
