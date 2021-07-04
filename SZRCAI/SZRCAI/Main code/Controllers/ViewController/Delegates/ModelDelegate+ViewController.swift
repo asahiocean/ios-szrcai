@@ -121,11 +121,11 @@ extension ViewController: ModelDelegate {
                     // creating a graph between vertices
                     mapView?.addOverlay(dashline)
                     
-                    if !mapView.model.graphsBuilt { mapView.model.graphsBuilt = true }
+                    if !mapView.model.graphsBuilt {
+                        mapView.model.graphsBuilt = true
+                    }
                     
-                    #if DEBUG
                     print("graphs count:", mapView.overlays.count)
-                    #endif
                 } else {
                     let alert = UIAlertController(title: "Point is too far away!",
                                                   message: "The distance between the vertices should not be more than 5 km.",
