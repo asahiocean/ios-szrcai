@@ -1,7 +1,6 @@
 import UIKit.UIResponder
 
 extension UIResponder {
-    
     static func defaultViewController(for window: UIWindow?) {
         guard let window = window else { fatalError() }
         window.rootViewController = ViewController(nibName: nil, bundle: nil)
