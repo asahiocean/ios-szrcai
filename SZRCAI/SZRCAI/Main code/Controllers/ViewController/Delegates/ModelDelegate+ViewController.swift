@@ -23,9 +23,7 @@ extension ViewController: ModelDelegate {
             print("User has chosen a starting point!")
         case Model.buttonTag.finish.rawValue:
             guard selected != nil else { return }
-            #if DEBUG
             print("User selected endpoint!")
-            #endif
         case Model.buttonTag.routecalc.rawValue:
             #if DEBUG
             print("Trying to make the shortest route!")
