@@ -5,6 +5,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var mapView: MapView!
+    internal var model = Model.shared
     
     /// Button for building graphs and routes
     weak var mainButton: UIButton!
