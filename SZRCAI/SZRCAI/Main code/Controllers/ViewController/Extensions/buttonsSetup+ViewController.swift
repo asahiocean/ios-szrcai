@@ -2,12 +2,13 @@ import UIKit
 
 extension ViewController {
     internal func buttonsSetup() {
-        guard let tracker = mapView.model.trackerButton(mv: mapView) else { fatalError("Solve the button problem") }
+        guard let tracker = mapView.model.trackerButton(with: mapView) else { fatalError("Solve the button problem") }
         view.addSubview(tracker)
         
         buttonKVO = mapView.model.observe(\.mainButton, options: [.initial,.new], changeHandler: { obj, change in
             guard let config = change.newValue, let button = config else { return }
-            self.mainButton = button // Monitoring the state of the button through the KVO
+            // Monitoring the state of the button through the KVO
+            self.mainButton = button
         })
         view.addSubview(mainButton)
         
@@ -29,10 +30,8 @@ extension ViewController {
         func buttonsAnimator(state: state) {
             let value = view.bounds.maxY * state.rawValue
             UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
-                // - - Main button - -
                 self?.mainButton.frame.origin.y = value
                 self?.mainButton.layoutIfNeeded()
-                //  - - Clear button - -
                 self?.clearButton.frame.origin.y = value
                 self?.clearButton.layoutIfNeeded()
             })

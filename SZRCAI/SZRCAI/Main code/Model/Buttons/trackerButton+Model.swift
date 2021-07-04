@@ -2,7 +2,7 @@ import UIKit
 import MapKit
 
 extension Model {
-    func trackerButton(mv mapView: MKMapView?) -> UIButton? {
+    func trackerButton(with mapView: MKMapView?) -> UIButton? {
         guard let mapView = mapView else { return nil }
         let sqroot = mapView.frame.width.squareRoot()
         
@@ -32,9 +32,7 @@ extension Model {
         view.center.y = mapView.frame.midY
         view.frame.origin.x = mapView.frame.maxX - (view.bounds.width + sqroot)
         view.addSubview(toolbar)
-        
         self.trackingButton = view
-        
         return trackingButton
     }
 }

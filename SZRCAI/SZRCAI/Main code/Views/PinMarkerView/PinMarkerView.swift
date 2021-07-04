@@ -1,5 +1,5 @@
 import Foundation
-import MapKit
+import MapKit.MKAnnotationView
 
 class PinMarkerView: MKMarkerAnnotationView {
     

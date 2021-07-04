@@ -25,20 +25,20 @@ class MapView: MKMapView {
         
         showsUserLocation = true
         userTrackingMode = .none
-
+        
         if #available(iOS 13.0, *) {
             pointOfInterestFilter = .none
         } else {
             showsPointsOfInterest = true
         }
-                
+        
         showsCompass = true
         showsScale = true
         isZoomEnabled = true
         isScrollEnabled = true
         
         let longPress = UILongPressGestureRecognizer()
-        longPress.minimumPressDuration = 0.25 // in seconds
+        longPress.minimumPressDuration = 0.25 // in sec
         longPress.addTarget(self, action: #selector(appendPin(_:)))
         addGestureRecognizer(longPress)
         

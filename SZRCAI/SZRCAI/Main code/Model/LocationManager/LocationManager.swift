@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-typealias lm = LocationManager
+typealias LM = LocationManager
 
 @objc class LocationManager: CLLocationManager {
     
@@ -26,7 +26,6 @@ typealias lm = LocationManager
 }
 
 extension LocationManager: CLLocationManagerDelegate {
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.status = status
         switch status {
