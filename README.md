@@ -1,4 +1,4 @@
-# [SZRCAI](https://szrcai.ru/) <img src="https://szrcai.ru/source/logo/logo.png" width="75" height="40" align="right">
+# [SZRCAI](https://szrcai.ru/) <img src="https://hh.ru/employer-logo/1248485.png" width="75" height="40" align="right">
 
 |   Demo of work  | Large distance | Error |
 |     :---:       |     :---:      |     :---:     |
