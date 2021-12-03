@@ -2,8 +2,6 @@
 
 <img src="https://tinyurl.com/2p8kys3e" align="right">
 
-<br>
-
 |   Demo of work  | Large distance | Error |
 |     :---:       |     :---:      |     :---:     |
 | ![](https://media.giphy.com/media/rCVfCsn0WfotuB7PWA/giphy.gif) | ![](https://media.giphy.com/media/s5U47A0myx9Z3PJxEC/giphy.gif) | ![](https://media.giphy.com/media/67LTjap7OHrpvG9INw/giphy.gif) |
