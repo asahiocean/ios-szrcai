@@ -1,4 +1,8 @@
-# [SZRCAI](https://szrcai.ru/) <img src="https://hh.ru/employer-logo/1248485.png" width="75" height="40" align="right">
+<h1>SZRCAI<img src="https://hh.ru/employer-logo/1248485.png" width="75" height="40" align="right"></h1>
+
+<img src="https://tinyurl.com/2p8kys3e" align="right">
+
+<br>
 
 |   Demo of work  | Large distance | Error |
 |     :---:       |     :---:      |     :---:     |
